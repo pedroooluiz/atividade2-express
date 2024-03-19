@@ -27,7 +27,22 @@ app.get('/exercicio1', (req, res)=>{
 
 app.get('/namorada', (req, res)=>{
     res.send("A minha namorada, e futura esposa, é a mulher mais linda desse mundo!!")
-})
+}) 
+
+app.get('/aluno/:matricula/:nome/:curso', (req, res)=>{
+    res.send(`Sua matrícula é: ${req.params.matricula}`)
+}) 
+
+app.get('/aluno/:nota1/:nota2/:nota3/:nota4', (req, res)=>{
+    let notA1 = Number(req.params.nota1)
+    let notA2 = Number(req.params.nota2)
+    let notA3 = Number(req.params.nota3)
+    let notA4 = Number(req.params.nota4)
+
+    let media = (notA1+notA2+notA3+notA4)/4
+
+    res.send(`Sua média é: ${media}`)
+}) 
 
 // essa parte é o final da api, nela contem a porta que é 3000 e uma arrow function, ela passa uma coisa pra finalizar
 app.listen(3000, () => {
